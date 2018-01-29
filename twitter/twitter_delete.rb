@@ -17,6 +17,7 @@ CSV.foreach(ARGV[0]) do |row|
 
   puts "Processing tweet delete for tweet #{row[0]}:\n#{row[3]}"
 
+  # Spawns a subprocess and outputs `y` for any input prompts
   PTY.spawn("t delete favorite #{row[0]}") do |_input, output, _pid|
     output.puts 'y'
     puts "\n  --> Processed...\n\n"
